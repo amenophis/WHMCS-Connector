@@ -35,6 +35,6 @@ use FP\WHMCS\Entity\Invoice as Invoice;
 $manager = Manager::getInstance();
 $manager->setConnector('default', Connector::getInstance('http://whmcsdomain.com', 'adminusername', md5('adminpassword')));
 
-$invoice = Invoice::find($id);
+$invoice = Invoice::findOne(array('invoiceid' => invoice_id));
 $invoices = Invoice::find(array('userid' => $user_id));
 ```
