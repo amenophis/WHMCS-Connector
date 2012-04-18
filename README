@@ -6,8 +6,7 @@ Unit tests will follow in future versions.
 
 Usage:
 
-<?php
-
+```php
 use FP\WHMCS\Adapter\Manager as Manager;
 use FP\WHMCS\Adapter\Json\Connector as Connector;
 
@@ -24,3 +23,4 @@ catch(FP\WHMCS\Exception $e)
   echo "Error - {$e->getMessage()}";
   exit;
 }
+```
