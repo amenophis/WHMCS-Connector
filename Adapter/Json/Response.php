@@ -47,4 +47,9 @@ class Response extends BaseResponse
     
     return null;
   }
+  
+  public function toArray()
+  {
+    return (array) $this->response;
+  }
 }

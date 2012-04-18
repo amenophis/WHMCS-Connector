@@ -4,10 +4,9 @@ Tested with WHMCS 5.0.3
 
 Unit tests will follow in future versions.
 
-Usage:
+Basic use, this is you want to access the data returned directly.
 
-<?php
-
+```php
 use FP\WHMCS\Adapter\Manager as Manager;
 use FP\WHMCS\Adapter\Json\Connector as Connector;
 
@@ -24,3 +23,18 @@ catch(FP\WHMCS\Exception $e)
   echo "Error - {$e->getMessage()}";
   exit;
 }
+```
+
+Using the model
+
+```php
+use FP\WHMCS\Adapter\Manager as Manager;
+use FP\WHMCS\Adapter\Json\Connector as Connector;
+use FP\WHMCS\Entity\Invoice as Invoice;
+
+$manager = Manager::getInstance();
+$manager->setConnector('default', Connector::getInstance('http://whmcsdomain.com', 'adminusername', md5('adminpassword')));
+
+$invoice = Invoice::findOne(array('invoiceid' => invoice_id));
+$invoices = Invoice::find(array('userid' => $user_id));
+```
