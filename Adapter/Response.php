@@ -14,4 +14,5 @@ abstract class Response
 
   abstract protected function setup();
   abstract public function getValue($name);
+  abstract protected function toArray();
 }
