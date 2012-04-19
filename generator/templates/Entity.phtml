@@ -1,0 +1,59 @@
+<?php echo "<?php\n" ?>
+
+namespace <?php echo $namespace ?>\Entity;
+use FP\WHMCS\Entity;
+use FP\WHMCS\Adapter\Connector;
+use FP\WHMCS\Adapter\Response;
+use FP\WHMCS\Adapter\Manager;
+
+class <?php echo $className ?> extends Entity
+{
+  <?php foreach($fields as $fieldname => $field) : ?> 
+  /**
+   * @var <?php echo $field['type'] ?> 
+   */ 
+  protected $<?php echo $fieldname  ?>;
+  <?php endforeach ?>
+  <?php foreach($fields as $fieldname => $field) : ?> 
+  /**
+   * get <?php echo $fieldname ?> 
+   * @return <?php echo $field['type'] ?> 
+   */ 
+  public function get<?php echo $field['as'] ?>()
+  {
+    return $this-><?php echo $fieldname ?>;
+  }
+  
+  /**
+   * set <?php echo $fieldname ?> 
+   * @param <?php echo $field['type'] ?> $<?php echo $fieldname ?> 
+   * @return <?php echo $className ?> 
+   */ 
+  public function set<?php echo $field['as'] ?>($<?php echo strtolower($field['as']) ?>)
+  {
+    $this-><?php echo $fieldname ?> = $<?php echo strtolower($field['as']) ?>;
+    return $this;
+  }
+  <?php if($field['type'] == 'list') :?>
+  /**
+   * get <?php echo $fieldname ?> 
+   * @return <?php echo $field['type'] ?> 
+   */ 
+  public function get<?php echo $field['as2'] ?>($key)
+  {
+    return $this-><?php echo $fieldname ?>[$key];
+  }
+  
+  /**
+   * set <?php echo $fieldname ?> 
+   * @param <?php echo $field['type'] ?> $<?php echo $fieldname ?> 
+   * @return <?php echo $className ?> 
+   */ 
+  public function set<?php echo $field['as2'] ?>($key, $<?php echo strtolower($field['as2']) ?>)
+  {
+    $this-><?php echo $fieldname ?>[$key] = $<?php echo strtolower($field['as2']) ?>;
+    return $this;
+  }
+  <?php endif ?>
+  <?php endforeach ?> 
+}

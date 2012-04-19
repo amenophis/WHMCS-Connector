@@ -1,0 +1,34 @@
+{
+  "className": "Invoice",
+  "actions": {
+    "get": {
+      "actions":"getinvoice",
+      "findOne":{
+        "options":["invoiceid"]
+      },
+      "find":{
+        "options":["userid", "status", "limitstart", "limitnum"]
+      }
+    },
+    "update":"updateinvoice",
+    "create":"createinvoice"
+  },
+  "fields": {
+    "invoiceid": {"as":"InvoiceId", "type":"numeric"},
+    "invoicenum": {"as":"InvoiceNumber","type":"numeric"},
+    "userid": {"as":"UserId","type":"numeric"},
+    "date": {"as":"Date","type":"date"},
+    "duedate": {"as":"DueDate","type":"date"},
+    "datepaid": {"as":"DatePaid","type":"datetime"},
+    "subtotal": {"as":"SubTotal","type":"numeric"},
+    "credit": {"as":"Cretid","type":"numeric"},
+    "tax": {"as":"Tax","type":"numeric"},
+    "tax2": {"as":"Tax2","type":"numeric"},
+    "total": {"as":"Total","type":"numeric"},
+    "taxrate": {"as":"TaxRate","type":"numeric"},
+    "status": {"as":"Status","type":"enum", "options":["Paid", "Pending", "Overdue"]},
+    "paymentmethod": {"as":"PaymentMethod","type":"text"},
+    "notes": {"as":"Notes","type":"text"},
+    "items": {"as":"Items","type":"list", "of":"InvoiceItem", "index":"item", "as2":"Item" }
+  }
+}

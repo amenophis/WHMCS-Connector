@@ -4,21 +4,9 @@ Tested with WHMCS 5.0.3
 
 Unit tests will follow in future versions.
 
-Using the loader
-```php
-<?php
-
-Require 'lib\FP\WHMCS\Loader.php';
-
-$loader = new FP\WHMCS\Loader();
-$loader->register();
-```
-
 Basic use, this is you want to access the data returned directly.
 
 ```php
-<?php
-
 use FP\WHMCS\Adapter\Manager as Manager;
 use FP\WHMCS\Adapter\Json\Connector as Connector;
 
@@ -40,8 +28,6 @@ catch(FP\WHMCS\Exception $e)
 Using the model
 
 ```php
-<?php
-
 use FP\WHMCS\Adapter\Manager as Manager;
 use FP\WHMCS\Adapter\Json\Connector as Connector;
 use FP\WHMCS\Entity\Invoice as Invoice;
