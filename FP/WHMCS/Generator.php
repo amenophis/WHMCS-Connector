@@ -25,7 +25,7 @@ class Generator
 
 	protected function parseTemplate($template, $vars = array())
 	{
-	  $template = sprintf('%s/templates/%s.phtml', $this->template_dir.'/../..', $template);
+	  $template = sprintf('%s/generator/templates/%s.phtml', $this->template_dir, $template);
 	  extract($vars);
 	  ob_start();
 	  require $template;

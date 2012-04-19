@@ -1,18 +1,19 @@
 #!/usr/bin/env php
 <?php
 
+require sprintf('%s/../Loader.php', __DIR__);
+
+use FP\WHMCS\Loader;
+use FP\WHMCS\Generator;
+
+$loader = new Loader();
+$loader->register();
+
+$generator = new Generator();
+
 function echoln($text)
 {
   echo $text, "\n";
-}
-
-function parseTemplate($template, $vars = array())
-{
-  $template = sprintf('%s/templates/%s.phtml', __DIR__, $template);
-  extract($vars);
-  ob_start();
-  require $template;
-  return ob_get_clean();
 }
 
 if ($argv[1] == '--help')
@@ -67,10 +68,10 @@ foreach(glob(sprintf('%s/configurations/%s/*.json', __DIR__, @$argv[1])) as $spe
     continue;
   }
   
-  @mkdir($output_dir.'/Entity', true);
-  @mkdir($output_dir.'/Type', true);
-  file_put_contents(sprintf('%s/Entity/%s.php', $output_dir, $spec['className']), parseTemplate('Entity', $spec));
-  file_put_contents(sprintf('%s/Type/%s.php', $output_dir, $spec['className']), parseTemplate('Type', $spec));
+  @mkdir($output_dir.'/Entity', 0755, true);
+  @mkdir($output_dir.'/Type', 0755, true);
+  file_put_contents(sprintf('%s/Entity/%s.php', $output_dir, $spec['className']), $generator->generateEntity($spec));
+  file_put_contents(sprintf('%s/Type/%s.php', $output_dir, $spec['className']), $generator->generateType($spec));
 }
 
 

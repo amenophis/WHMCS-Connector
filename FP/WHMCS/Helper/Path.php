@@ -6,7 +6,7 @@ class Path
 {
   public static function dirname($file)
   {
-    return dirname($this->fixPath($file));
+    return dirname(self::fixPath($file));
   }
   
   public static function fixPath($file)
