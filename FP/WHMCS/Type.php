@@ -7,7 +7,6 @@ use FP\WHMCS\Fields\Text as TextField;
 
 abstract class Type
 {
-  protected $actions;
   protected $fields;
   
   public function __construct()
