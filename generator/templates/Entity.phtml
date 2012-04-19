@@ -55,5 +55,62 @@ class <?php echo $className ?> extends Entity
     return $this;
   }
   <?php endif ?>
-  <?php endforeach ?> 
+  <?php endforeach ?>
+  <?php if(isset($actions['get']['findOne'])) : ?> 
+  public static function findOne($<?php echo $actions['get']['findOne']['identifier'] ?>, Connector $connector = null)
+  {
+    if (is_null($connector))
+    {
+      $connector = Manager::getInstance()->getConnector();
+    }
+
+    return self::makeInstance($connector->execute('<?php echo $actions['get']['findOne']['action'] ?>', array('<?php echo $actions['get']['findOne']['identifier'] ?>' => $<?php echo $actions['get']['findOne']['identifier'] ?>)));
+  }
+  <?php endif ?>
+  <?php if(isset($actions['get']['find'])) :?> 
+  public static function find($params, Connector $connector = null)
+  {
+    if (is_null($connector))
+    {
+      $connector = Manager::getInstance()->getConnector();
+    }
+
+    $results = array();
+    $response = $connector->execute('<?php echo $actions['get']['find']['action'] ?>', $params);
+    <?php foreach($actions['get']['find']['parentNodes'] as $index => $node) : ?> 
+    <?php if($index == 0): ?>$data = $response->getValue('<?php echo $node ?>');<?php else: ?>$data = $data-><?php echo $node; ?>;<?php endif ?>
+    <?php endforeach; ?> 
+
+    foreach ($data as $row)
+    {
+      array_push($results, self::makeInstance($row));
+    }
+
+    return $results;
+  } 
+  <?php endif ?> 
+  public static function makeInstance($response, Connector $connector = null)
+  {
+    if (is_null($connector))
+    {
+      $connector = Manager::getInstance()->getConnector();
+    }
+    
+    $instance = new self($connector);
+
+    if ($response instanceof Response)
+    {
+      $response = $response->toArray();
+    }
+    
+    <?php foreach($fields as $fieldname => $field) : ?><?php if($field['type'] == 'list'):?> 
+    foreach($response['<?php echo strtolower($field['as']) ?>']['<?php echo $field['index'] ?>'] as $i => $<?php echo $field['index'] ?>)
+    {
+      $this->set<?php echo $field['as2'] ?>($i, <?php echo $field['of'] ?>::makeInstance($<?php echo $field['index'] ?>, $connector));
+    }
+    <?php else: ?>$instance->set('<?php echo $fieldname ?>', $response['<?php echo $fieldname ?>']);
+    <?php endif; ?><?php endforeach; ?>
+
+    return $instance;
+  }
 }

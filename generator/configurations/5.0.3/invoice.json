@@ -2,12 +2,14 @@
   "className": "Invoice",
   "actions": {
     "get": {
-      "actions":"getinvoice",
-      "findOne":{
-        "options":["invoiceid"]
+      "findOne": {
+        "action":"getinvoice",
+        "identifier":"invoiceid"
       },
       "find":{
-        "options":["userid", "status", "limitstart", "limitnum"]
+        "action":"getinvoices",
+        "options":["userid", "status", "limitstart", "limitnum"],
+        "parentNodes":["invoices", "invoice"]
       }
     },
     "update":"updateinvoice",

@@ -12,7 +12,7 @@ function parseTemplate($template, $vars = array())
   extract($vars);
   ob_start();
   require $template;
-  return ob_get_flush();
+  return ob_get_clean();
 }
 
 if ($argv[1] == '--help')
@@ -67,8 +67,8 @@ foreach(glob(sprintf('%s/configurations/%s/*.json', __DIR__, $argv[1])) as $spec
     continue;
   }
   
-  mkdir($output_dir.'/Entity');
-  mkdir($output_dir.'/Type');
+  @mkdir($output_dir.'/Entity');
+  @mkdir($output_dir.'/Type');
   file_put_contents(sprintf('%s/Entity/%s.php', $output_dir, $spec['className']), parseTemplate('Entity', $spec));
   file_put_contents(sprintf('%s/Type/%s.php', $output_dir, $spec['className']), parseTemplate('Type', $spec));
 }
