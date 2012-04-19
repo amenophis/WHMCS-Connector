@@ -23,7 +23,7 @@
     "duedate": {"as":"DueDate","type":"date"},
     "datepaid": {"as":"DatePaid","type":"datetime"},
     "subtotal": {"as":"SubTotal","type":"numeric"},
-    "credit": {"as":"Cretid","type":"numeric"},
+    "credit": {"as":"Credit","type":"numeric"},
     "tax": {"as":"Tax","type":"numeric"},
     "tax2": {"as":"Tax2","type":"numeric"},
     "total": {"as":"Total","type":"numeric"},
