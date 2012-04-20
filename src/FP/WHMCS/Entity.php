@@ -17,11 +17,6 @@ abstract class Entity
     //if connector is null, use the default
     if(is_null($connector))
       $this->setConnector(Manager::getInstance()->getConnector());
-    
-    //autoload the type, this is dirty, i need to think of a better way!
-    $classname = @end(explode('\\', get_class($this)));
-    $classname = "FP\\WHMCS\\Types\\{$classname}";
-    $this->setType(new $classname);
   }
 
   /**

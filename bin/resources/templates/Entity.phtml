@@ -8,6 +8,16 @@ use FP\WHMCS\Adapter\Manager;
 
 class <?php echo $className ?> extends Entity
 {
+  public function __construct(Connector $connector = null)
+  {
+    parent::__construct($connector);
+    $this->setType(new <?php echo $namespace ?>\Type\<?php echo $className ?>());
+    
+    //if connector is null, use the default
+    if(is_null($connector))
+      $this->setConnector(Manager::getInstance()->getConnector());
+  }
+  
   <?php foreach($fields as $fieldname => $field) : ?> 
   /**
    * @var <?php echo $field['type'] ?> 
