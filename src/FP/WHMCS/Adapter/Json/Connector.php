@@ -13,7 +13,7 @@ class Connector extends BaseConnector
 
   public function execute($action, $params)
   {
-    return new Response(parent::execute($action, $params));
+    return parent::execute($action, $params);
   }
 
   public static function getInstance($host, $username, $password)
