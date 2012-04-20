@@ -54,7 +54,15 @@ function get_template_filename($filename)
   return template_path.'/'.ucwords($filename).'.phtml';
 }
 
-function confirm($question)
+function confirm($question, $values = array('y','n'))
 {
-  return true;
+  $answer = '';
+  $question = $question . " > ";
+  
+  while(!in_array($answer, $values))
+  {
+    echo $question;
+    $answer = trim(fgets(STDIN));
+  }
+  return $answer;
 }

@@ -72,7 +72,7 @@ foreach(get_schema_files($argv[1]) as $schema_file)
   
   if(!$overwrite && (is_file($entity_file_path) || is_file($type_file_path)))
   {
-    $overwrite = confirm('Files will be overwritten, do you want to continue? [y/n]');
+    $overwrite = confirm('Files will be overwritten, do you want to continue? [y/n]', array('y', 'n')) == 'y';
     
     if(!$overwrite)
       exit(0);
@@ -91,5 +91,3 @@ foreach($files as $file => $contents)
     echoln("error: failed to write to {$file}");  
   }
 }
-
-print_r($schema_files);

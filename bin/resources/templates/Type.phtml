@@ -1,15 +1,13 @@
 <?php echo "<?php\n" ?>
 
 namespace <?php echo $namespace ?>\Type;
-
 use FP\WHMCS\Type;
-
 
 class <?php echo $className ?> extends Type
 {
   public function setup()
   {<?php foreach($fields as $fieldname => $field) : ?> 
-    $this->addField('<?php echo $fieldname ?>', new FP\WHMCS\Field\<?php echo ucwords($field['type']) ?>);<?php endforeach ?>
+    $this->addField('<?php echo $fieldname ?>', new FP\WHMCS\Field\<?php echo ucwords($field['type']) ?>());<?php endforeach ?>
   
   }
 }

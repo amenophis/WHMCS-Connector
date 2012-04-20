@@ -34,7 +34,7 @@ class <?php echo $className ?> extends Entity
     $this-><?php echo $fieldname ?> = $<?php echo strtolower($field['as']) ?>;
     return $this;
   }
-  <?php if($field['type'] == 'list') :?>
+  <?php if($field['type'] == 'fields') :?>
   /**
    * get <?php echo $fieldname ?> 
    * @return <?php echo $field['type'] ?> 
@@ -103,7 +103,7 @@ class <?php echo $className ?> extends Entity
       $response = $response->toArray();
     }
     
-    <?php foreach($fields as $fieldname => $field) : ?><?php if($field['type'] == 'list'):?> 
+    <?php foreach($fields as $fieldname => $field) : ?><?php if($field['type'] == 'fields'):?> 
     foreach($response['<?php echo strtolower($field['as']) ?>']['<?php echo $field['index'] ?>'] as $i => $<?php echo $field['index'] ?>)
     {
       $this->set<?php echo $field['as2'] ?>($i, <?php echo $field['of'] ?>::makeInstance($<?php echo $field['index'] ?>, $connector));

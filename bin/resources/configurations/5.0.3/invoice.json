@@ -31,6 +31,6 @@
     "status": {"as":"Status","type":"enum", "options":["Paid", "Pending", "Overdue"]},
     "paymentmethod": {"as":"PaymentMethod","type":"text"},
     "notes": {"as":"Notes","type":"text"},
-    "items": {"as":"Items","type":"list", "of":"InvoiceItem", "index":"item", "as2":"Item" }
+    "items": {"as":"Items","type":"fields", "of":"InvoiceItem", "index":"item", "as2":"Item" }
   }
 }
