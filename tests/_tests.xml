@@ -1,0 +1,8 @@
+<phpunit>
+  <testsuites>
+    <testsuite name="Adapter">
+      <file>FP/WHMCS/Adapter.php</file>
+      <file>FP/WHMCS/Adapter/Json.php</file>
+    </testsuite>
+  </testsuites>
+</phpunit>

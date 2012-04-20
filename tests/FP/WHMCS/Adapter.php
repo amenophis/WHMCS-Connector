@@ -1,7 +1,5 @@
 <?php
 
-require __DIR__ . '/_loader.php';
-
 class AdapterTest extends PHPUnit_Framework_TestCase
 {
   /**

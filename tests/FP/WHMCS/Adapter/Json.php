@@ -1,7 +1,5 @@
 <?php
 
-require __DIR__ . '/_loader.php';
-
 class AdapterJsonTest extends PHPUnit_Framework_TestCase
 {
   public function testGetInstanceOf()

@@ -1,0 +1,2 @@
+#!/bin/sh
+phpunit --bootstrap ./_bootstrap.php --configuration _tests.xml
