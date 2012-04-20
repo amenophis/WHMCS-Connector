@@ -10,4 +10,4 @@ TODO
 * Implement save & update methods for Entity derived classes, this will need to be done in the templates
 * Create unit test templates for each Entity derived class.
 * Impliment field validation via phpdoc to remove the need creating a Type class for each Entity.
-* Create shema files for all of wHMCS's data types
+* Create schema files for all of wHMCS's data types
