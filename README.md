@@ -7,5 +7,5 @@ You can either use the API directly using the "execute" method in the adapter or
 TODO
 ----
 * Complete model generator
-** Add support for helper actions, not all actions relate to a specific data type.
-** Implement save & update methods in Entity derived classes
+* * Add support for helper actions, not all actions relate to a specific data type.
+* * Implement save & update methods in Entity derived classes
