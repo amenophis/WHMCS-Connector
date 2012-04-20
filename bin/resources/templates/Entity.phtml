@@ -20,7 +20,7 @@ class <?php echo $className ?> extends Entity
   
   <?php foreach($fields as $fieldname => $field) : ?> 
   /**
-   * @var <?php echo $field['type'] ?> 
+   * @FP\WHMCS\Field <?php echo $field['type'] ?>
    */ 
   protected $<?php echo $fieldname  ?>;
   <?php endforeach ?>
