@@ -1,4 +1,8 @@
-WHMCS connector for PHP 5.3 
+README 
+======
+
+WHMCS connector for PHP 5.3
+---------------------------
 
 Tested with WHMCS 5.0.3 
 
