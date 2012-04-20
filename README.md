@@ -23,7 +23,4 @@ $manager = Manager::getInstance();
 $manager->setConnector('default', $connector);
 
 $response = $connector->execute('action', array('arg1'=>'val1', 'arg2'=>'val2'));
-
-
-
-
+```
