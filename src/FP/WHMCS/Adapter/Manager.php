@@ -8,7 +8,7 @@ namespace FP\WHMCS\Adapter;
 class Manager 
 {
   private static $instance;
-  private static $connectors = array();
+  private $connectors = array();
   private static $current;
   
   public function __construct()
@@ -35,19 +35,19 @@ class Manager
    * @param string $name Index of the chosen Connector
    * @return FP\WHMCS\Connector
    */
-  public function getConnector($name = null)
+  public function get($name = null)
   {
-    if(count(self::$connectors) > 0)
+    if(count($this->connectors) > 0)
     {    
       if(!is_null($name))
       {
-        if(!isset(self::$connectors[$name]))
+        if(!isset($this->connectors[$name]))
           throw new \Exception("unknown Connector: $name");
         
-        return self::$connectors[$name];
+        return $this->connectors[$name];
       }
       
-      return current(self::$connectors);
+      return current($this->connectors);
     }
     throw new \Exception('No Connectors found');
   }
@@ -56,8 +56,8 @@ class Manager
    * @param string $name Index of the Connector
    * @param FP\WHMCS\Connector $Connector
    */
-  public function setConnector($name, Connector $connector)
+  public function set($name, Connector $connector)
   {    
-    self::$connectors[$name] = $connector;
+    $this->connectors[$name] = $connector;
   }
 }
