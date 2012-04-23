@@ -11,9 +11,9 @@ class Connector extends BaseConnector
     $this->setFormat('json');
   }
 
-  public function execute($action, $params)
+  public function execute($action, $params = array())
   {
-    return parent::execute($action, $params);
+    return json_decode(parent::execute($action, $params));
   }
 
   public static function getInstance($host, $username, $password)

@@ -14,7 +14,7 @@ abstract class Connector
     $this->setHost($host)->setUsername($username)->setPassword($password);
   }
 
-  public function execute($action, $params)
+  public function execute($action, $params = array())
   {
     $query_string = '';
 
