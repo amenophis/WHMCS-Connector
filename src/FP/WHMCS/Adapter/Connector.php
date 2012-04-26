@@ -140,4 +140,8 @@ abstract class Connector
   {
     throw new Exception('Not implemented');
   }
+
+  const SUCCESS = 'success';
+  const ERROR = 'error';
+  public abstract function is($response, $is);
 }

@@ -20,4 +20,9 @@ class Connector extends BaseConnector
   {
     return new self($host, $username, $password);
   }
+
+  public function is($response, $is)
+  {
+    return $response->result == $is;
+  }
 }
