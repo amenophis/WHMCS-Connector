@@ -1,9 +1,21 @@
 <?php
 
+/*
+ * This file is part of the FP-WHMCS-Connector
+ *
+ * (c) IFP Ltd <support@french-property.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace FP\WHMCS\Adapter;
 
 /**
- * Connection / Connector
+ * Connection manager
+ * Though its doubleful youll need more than one this acts as a registry
+ * to allow multipul instances to be managed
+ * @author Daniel Chalk <snathcfrigate@gmail.com>
  */
 class Manager 
 {

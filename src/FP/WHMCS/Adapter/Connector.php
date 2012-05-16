@@ -1,7 +1,22 @@
 <?php
 
+/*
+ * This file is part of the FP-WHMCS-Connector
+ *
+ * (c) IFP Ltd <support@french-property.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace FP\WHMCS\Adapter;
 
+/**
+ * Super class for a connectors
+ * We currently only have one derived class for JSON but we plan to
+ * support XML in future versions
+ * @author Daniel Chalk <snathcfrigate@gmail.com>
+ */
 abstract class Connector
 {
   protected $host;
