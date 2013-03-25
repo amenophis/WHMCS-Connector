@@ -10,7 +10,7 @@
     "autoload": {
         "psr-0": { "Amenophis\\WHMCS\\Connector": "" }
     },
-    "target-dir": "Amenophis/WHMCS//Bundle",
+    "target-dir": "Amenophis/WHMCS/Connector",
     "require": {
         "php": ">=5.3.3"
     },
