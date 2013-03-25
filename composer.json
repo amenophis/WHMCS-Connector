@@ -1,0 +1,18 @@
+{
+    "name": "amenophis/whmcs-connector",
+    "description": "WHMCS for PHP",
+    "authors": [
+        {
+            "name": "Jérémy LEHERPEUR",
+            "email": "amenophis@leherpeur.net"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Amenophis\\WHMCS\\Connector": "" }
+    },
+    "target-dir": "Amenophis/WHMCS//Bundle",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "minimum-stability": "dev"
+}
