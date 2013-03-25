@@ -3,7 +3,7 @@
 class AdapterTest extends PHPUnit_Framework_TestCase
 {
   /**
-   * @expectedException FP\WHMCS\Adapter\Exception
+   * @expectedException Amenophis\WHMCS\Adapter\Exception
    */
   public function testHttpException()
   {

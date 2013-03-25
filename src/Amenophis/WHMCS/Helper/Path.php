@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FP\WHMCS\Helper;
+namespace Amenophis\WHMCS\Helper;
 
 /**
  * Path helper, using __DIR__ with php5.3 can be problematic.

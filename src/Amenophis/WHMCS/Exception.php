@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FP\WHMCS;
+namespace Amenophis\WHMCS;
 
 /**
  * @author Daniel Chalk <snathcfrigate@gmail.com>

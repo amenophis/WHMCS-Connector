@@ -9,8 +9,8 @@
  * file that was distributed with this source code.
  */
 
-namespace FP\WHMCS\Adapter\Json;
-use FP\WHMCS\Adapter\Connector as BaseConnector;
+namespace Amenophis\WHMCS\Adapter\Json;
+use Amenophis\WHMCS\Adapter\Connector as BaseConnector;
 
 /**
  * JSON Connector 

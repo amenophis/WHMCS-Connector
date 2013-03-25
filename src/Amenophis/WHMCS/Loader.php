@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FP\WHMCS;
+namespace Amenophis\WHMCS;
 
 /**
  * Autoloader, simple enough to get you started quickly if you lack your 

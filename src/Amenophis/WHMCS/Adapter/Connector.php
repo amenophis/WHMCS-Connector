@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FP\WHMCS\Adapter;
+namespace Amenophis\WHMCS\Adapter;
 
 /**
  * Super class for a connectors
